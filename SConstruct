@@ -7,7 +7,7 @@ env = Environment(
     CPPPATH=["."]
 )
 
-# Configure compilation database to enable IDE InteliSense.
+# Configure compilation database to enable IDE IntelliSense.
 env.Tool("compilation_db")
 env.CompilationDatabase()
 cdb = env.CompilationDatabase()
