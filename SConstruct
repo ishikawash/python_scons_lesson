@@ -39,9 +39,10 @@ env.Program(
 python_env = env.Clone()
 python_env.Append(CPPPATH=["/usr/include/python3.11"])
 shared_objects = python_env.SharedObject(["tiny_math.c", "python_module.c"])
+distutils_build_dir = python_env.Dir("build")
 python_env.Command(
-    target="python_module",
+    target=distutils_build_dir,
     source=shared_objects,
     action=f"{sys.executable} setup.py build"
 )
-python_env.Clean("python_module", Dir("build"))
+python_env.Clean(distutils_build_dir, distutils_build_dir)
